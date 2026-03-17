@@ -1,8 +1,8 @@
-FROM node:alpine3.20
+FROM node:alpine3.22
 
 WORKDIR /tmp
 
-COPY . .
+COPY index.js package.json index.html ./
 
 EXPOSE 3000/tcp
 
@@ -12,4 +12,4 @@ RUN apk update && apk upgrade &&\
     chmod +x index.js &&\
     npm install
 
-CMD ["node", "index.js"]
+CMD ["npm", "start"]
